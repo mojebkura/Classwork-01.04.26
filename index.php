@@ -13,4 +13,5 @@ if ($method == "GET") {
 }else{
     SelectAll($pdo);
 }
-};
+exict();
+};elseif ($method == "POST") {

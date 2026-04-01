@@ -7,7 +7,7 @@ function SelectAll($pdo){
     echo json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 }
 
-function SelectID($pdo,$id){
+function SelectId($pdo,$id){
     $id = $_GET["id"];
     $sql = "SELECT * FROM `students` WHERE id=:id";
     $stmt = $pdo->prepare($sql);
@@ -16,5 +16,6 @@ function SelectID($pdo,$id){
     echo json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 
 }
-
-function SelectByID($pdo,$id){}
+function Updateid($pdo,$id, $data){
+    $stmt = $pdo->prepare("UPDATE `students` SET name =:name,");
+}
