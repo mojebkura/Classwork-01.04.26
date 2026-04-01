@@ -10,8 +10,7 @@ if ($method == "GET") {
     if (isset($_GET["id"])) {
         $id = $_GET["id"];
         SelectAll($pdo);
-}else{
-    SelectAll($pdo);
 }
-exict();
-};elseif ($method == "POST") {
+} elseif ($method == "POST") {
+    addstudents($pdo, $_POST);
+}

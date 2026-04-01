@@ -6,7 +6,6 @@ function SelectAll($pdo){
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     echo json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 }
-
 function SelectId($pdo,$id){
     $id = $_GET["id"];
     $sql = "SELECT * FROM `students` WHERE id=:id";
@@ -14,8 +13,14 @@ function SelectId($pdo,$id){
     $stmt->execute(["id"=> $id]);
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     echo json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-
 }
-function Updateid($pdo,$id, $data){
-    $stmt = $pdo->prepare("UPDATE `students` SET name =:name,");
+function Addstudents($pdo,$data){
+    $sql = "INSERT INTO students(name,groups) VALUES (:name,:groups)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute($data);
+    $response = [
+        'status' => true,
+        'message'=> 'ДОБАВЛЕНО'
+    ];
+    echo json_encode($response);
 }
