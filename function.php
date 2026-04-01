@@ -15,7 +15,7 @@ function SelectId($pdo,$id){
     echo json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 }
 function Addstudents($pdo,$data){
-    $sql = "INSERT INTO students(name,groups) VALUES (:name,:groups)";
+    $sql = "INSERT INTO students(name,surname,email,groups) VALUES (:name,:surname,:email,:groups)";
     $stmt = $pdo->prepare($sql);
     $stmt->execute($data);
     $response = [

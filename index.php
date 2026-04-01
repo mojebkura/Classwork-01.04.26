@@ -12,5 +12,5 @@ if ($method == "GET") {
         SelectAll($pdo);
 }
 } elseif ($method == "POST") {
-    addstudents($pdo, $_POST);
+    Addstudents($pdo, $_POST);
 }
